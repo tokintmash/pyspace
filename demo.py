@@ -1,12 +1,13 @@
-def sonic_how_many_rings_did_you_get(input_string):
-    
-    counter = 0
-    for c in input_string:
-        if c in ['a', 'b', 'd', 'D', 'e', 'g', 'o', 'O', 'p', 'P', 'q', 'Q', 'R', '0', '6', '9']:
-            counter += 1
-        elif c in ['B', '8']:
-            counter += 2
-            
-    return counter
+def identify_ninja(ninja_name, all_villagers):
+    result = []
+    # flag = False
+    for i in range(len(all_villagers)):
+    # for villager in all_villagers:
+        if sorted(ninja_name) == sorted(all_villagers[i]):
+            result.append(all_villagers[i])
+    # if len(result) == 0:
+    #     return TypeError
+    return result
 
-print(sonic_how_many_rings_did_you_get("Helloo"))
+# print(identify_ninja('obb', ['bob', 'richard']))
+# print(identify_ninja('toidz', ['bob', 'richard']))
