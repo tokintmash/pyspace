@@ -21,9 +21,10 @@ def order_discgolfers(scores):
     if len(scores) < 1:
         return result
     for score in scores:
-        if score == scores[0]:
-            print(score)
+        lowest = min(score, key=score.get)
+        result.append(lowest)
+        
     return result 
 
 
-order_discgolfers(scores)
+print(order_discgolfers(scores))
