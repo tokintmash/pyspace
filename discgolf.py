@@ -27,7 +27,9 @@ def order_discgolfers(scores):
                 lowest = min(scores[i], key=scores[i].get)
                 if lowest not in result:
                     result.append(lowest)
-            if len(set(scores[i].values())) < len(scores[i]) and len(set(scores[i].values())) > 1:
+                    # print(result)
+                    scores[i].pop(lowest)
+                
                 
             
         
