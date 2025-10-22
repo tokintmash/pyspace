@@ -18,11 +18,18 @@ scores = [{
 
 def order_discgolfers(scores):
     result = []
-    if len(scores) < 1:
+    if len(scores) < 1 or scores == None:
         return result
-    for score in scores:
-        lowest = min(score, key=score.get)
-        result.append(lowest)
+    
+    while len(result) < len(scores[0]):
+        for i in range(len(scores) -1, -1, -1):
+            if len(set(scores[i].values())) == len(scores[i]):
+                lowest = min(scores[i], key=scores[i].get)
+                if lowest not in result:
+                    result.append(lowest)
+            if len(set(scores[i].values())) < len(scores[i]) and len(set(scores[i].values())) > 1:
+                
+            
         
     return result 
 
