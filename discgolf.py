@@ -16,11 +16,23 @@ scores = [{
     'squidward': 3,
 }]
 
+def all_ties(scores):
+    counter = 0
+    for score in scores:
+        if len(set(score.values())) > 1:
+            counter += 1
+    if len(counter) == len(scores):
+        return True
+    else:
+        return False
+
 def order_discgolfers(scores):
     result = []
     players = sorted(scores[0].keys())
     if len(scores) < 1 or scores == None:
         return result
+    if all_ties:
+        return players
     
     # while len(result) <= len(players):
     while len(result) <= 2:
@@ -33,6 +45,7 @@ def order_discgolfers(scores):
                     print("lowest:", lowest)
                     result.append(lowest)
                     scores[i].pop(lowest)
+
             if len(set(scores[i].values())) == 1 and len(scores[i]) > 1:
                 print("tied score:", scores[i])
                 sorted_score = sorted(scores[i].keys())
